@@ -5,9 +5,27 @@ body {
   margin: 50px;
 }
 
+main,
+img {
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+  border: 5px solid rgb(44, 44, 44);
+}
+
+main {
+  background-color: bisque;
+  width: 800px;
+  padding: 24px;
+  margin: 200px auto 72px auto;
+  border-radius: 8px;
+}
+
 h1 {
   font-family: "Oswald", sans-serif;
   color: #534b4b;
+}
+
+#date {
+  color: brown;
 }
 
 p {
@@ -34,4 +52,5 @@ img {
   width: 200px;
   height: 200px;
   border-radius: 100px;
+  margin-top: -134px;
 }
