@@ -35,12 +35,3 @@ img {
   height: 200px;
   border-radius: 100px;
 }
-
-.upcoming {
-  color: rgb(107, 96, 83);
-  font-size: 20px;
-}
-
-ol {
-  list-style: none;
-}
