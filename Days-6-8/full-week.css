@@ -1,0 +1,36 @@
+/* Stylesheet */
+body {
+    text-align: center;
+    background-color: rgb(233, 215, 207);
+    margin: 50px;
+  }
+  
+  h1 {
+    font-family: "Oswald", sans-serif;
+    color: #534b4b;
+  }
+  
+  p {
+    font-family: "Fira Sans", sans-serif;
+    color: #534b4b;
+  }
+  
+  a {
+    color: rgb(167, 1, 78);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  ol {
+    list-style: none;
+    width: 500px;
+    margin: 36px auto 0 auto;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+  }
