@@ -6,10 +6,11 @@ body {
 
 h1 {
   color: #5532c0;
+  font-size: 52px;
 }
 
 img {
-  width: 250px;
+  width: 300px;
 }
 
 main {
@@ -23,16 +24,21 @@ main {
 }
 
 ul {
-    padding-left: 16px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 li {
-    list-style-type: none;
-    margin: 16px auto;
+    padding-left: 10px;
+    margin: 14px auto;
+    border-left: 5px solid transparent;
 }
 
 .highlight {
     color: #f2d356;
+    border-color: #f2d356;
+
 }
 
 span {
