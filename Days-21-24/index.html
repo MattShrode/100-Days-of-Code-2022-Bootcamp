@@ -7,8 +7,8 @@
     <title>WebFood</title>
   </head>
   <body>
-    <header>
-      <h2>Webfood</h2>
+    <header id="main-header">
+      <a id="logo" href="./index.html">WebFood</a>
       <nav>
         <ul>
           <li><a href="./index.html">Browse Meals</a></li>
@@ -18,23 +18,33 @@
     </header>
     <main>
       <h1>Browse our delicious meals</h1>
-      <section>
-        <article>
-          <img
-            src="./images/risotto.jpg"
-            alt="Plate of risotto and tiger prawns."
-          />
-          <h2>Risotto with Tiger Prawns</h2>
-          <a href="./index.html">Add to Cart</a>
-        </article>
-        <article>
-          <img
-            src="./images/cheeseburgers.jpg"
-            alt="Plate with two cheeseburgers and french fries."
-          />
-          <h2>Cheeseburgers</h2>
-          <a href="./index.html">Add to Cart</a>
-        </article>
+      <section id="lastest-products">
+        <ul>
+          <li class="food-item">
+            <article>
+              <img
+                src="./images/risotto.jpg"
+                alt="Plate of risotto and tiger prawns."
+              />
+              <div class="food-item-content">
+                <h2>Risotto with Tiger Prawns</h2>
+                <a class="btn" href="./index.html">Add to Cart</a>
+              </div>
+            </article>
+          </li>
+          <li class="food-item">
+            <article>
+              <img
+                src="./images/cheeseburgers.jpg"
+                alt="Plate with two cheeseburgers and french fries."
+              />
+              <div class="food-item-content">
+                <h2>Cheeseburgers</h2>
+                <a class="btn" href="./index.html">Add to Cart</a>
+              </div>
+            </article>
+          </li>
+        </ul>
       </section>
     </main>
   </body>
