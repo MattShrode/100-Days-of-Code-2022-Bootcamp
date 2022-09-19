@@ -4,14 +4,14 @@ body {
 }
 
 h1 {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 form {
@@ -57,6 +57,10 @@ textarea:focus {
   margin-right: 0.5rem;
 }
 
+textarea {
+  resize: none;
+}
+
 button {
   display: block;
   font: inherit;
@@ -65,6 +69,7 @@ button {
   border: 1px solid rgb(32, 5, 63);
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {

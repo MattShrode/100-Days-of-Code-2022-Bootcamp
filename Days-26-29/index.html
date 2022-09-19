@@ -24,15 +24,33 @@
           <ul>
             <li>
               <label for="username">Your Name:</label>
-              <input type="text" name="user-name" id="username" />
+              <input
+                type="text"
+                name="user-name"
+                id="username"
+                required
+                placeholder="John Smith"
+              />
             </li>
             <li>
               <label for="useremail">Your Email Address:</label>
-              <input type="email" name="user-email" id="useremail" />
+              <input
+                type="email"
+                name="user-email"
+                id="useremail"
+                required
+                placeholder="jsmith@example.com"
+              />
             </li>
             <li>
               <label for="userpassword">Your Password:</label>
-              <input type="password" name="user-password" id="userpassword" />
+              <input
+                type="password"
+                name="user-password"
+                id="userpassword"
+                required
+                minlength="8"
+              />
             </li>
           </ul>
         </section>
@@ -41,11 +59,23 @@
           <ul>
             <li>
               <label for="userage">Your Age:</label>
-              <input type="number" step="1" name="user-age" id="userage" />
+              <input
+                type="number"
+                step="1"
+                name="user-age"
+                id="userage"
+                required
+                min="18"
+              />
             </li>
             <li>
               <label for="birthdate">Your Birthday:</label>
-              <input type="date" name="user-birthdate" id="birthdate" />
+              <input
+                type="date"
+                name="user-birthdate"
+                id="birthdate"
+                required
+              />
             </li>
             <li>
               <label for="favoritecolor">Your Favorite Color:</label>
@@ -75,6 +105,7 @@
                 name="verification"
                 id="verify-text"
                 value="text"
+                required
               />
               <label for="verify-text">Via Text Message (SMS)</label>
             </li>
@@ -84,6 +115,7 @@
                 name="verification"
                 id="verify-phone"
                 value="phone"
+                required
               />
               <label for="verify-phone">Via Phone Call</label>
             </li>
@@ -93,6 +125,7 @@
                 name="verification"
                 id="verify-email"
                 value="email"
+                required
               />
               <label for="verify-email">Via Email</label>
             </li>
@@ -129,7 +162,7 @@
           </div>
         </section>
         <section>
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </section>
       </form>
     </main>
