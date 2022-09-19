@@ -1,0 +1,44 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: aliceblue;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  width: 30rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px rgb(200, 200, 200);
+}
+
+label {
+  display: block;
+  margin: 0.3rem 0;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid rgb(184, 184, 184);
+  padding: 0.25rem;
+  color: rgb(61, 61, 61);
+}
+
+textarea {
+    resize: none;
+}
