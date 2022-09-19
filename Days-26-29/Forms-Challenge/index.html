@@ -1,13 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Forms Challenge</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+    <main>
+      <form action="/" method="GET">
+        <section>
+          <h2>How can we help you?</h2>
+          <ul>
+            <li class="form-inline-control">
+              <label for="user-name">Your Name</label>
+              <input type="text" name="user-name" id="user-name"/>
+            </li>
+            <li class="form-inline-control">
+              <label for="user-email">Your Email Address</label>
+              <input type="text" name="user-email" id="user-email"/>
+            </li>
+            <li class="form-inline-control">
+              <label for="user-phone">Your Phone Number</label>
+              <input type="text" name="user-phone" id="user-phone"/>
+            </li>
+            <li class="form-inline-control">
+              <label for="user-message">Your Message</label>
+              <textarea name="user-message" id="user-message" rows="8"></textarea>
+            </li>
+            <li class="form-inline-control">
+              <label for="user-source">How did you find us?</label>
+              <select name="user-source" id="user-source">
+                <option value="web">Web Search</option>
+                <option value="mouth">Word of Mouth</option>
+                <option value="ad">Advertisement</option>
+              </select>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>How should we reply?</h2>
+          <ul>
+            <li class="form-inline-control">
+              <input type="radio" name="reply" id="phone" />
+              <label for="">Call me</label>
+            </li>
+            <li class="form-inline-control">
+              <input type="radio" name="reply" id="email" />
+              <label for="">Send me an email</label>
+            </li>
+            <li class="form-inline-control">
+              <input type="radio" name="reply" id="dont" />
+              <label for="">Don't reply</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <input type="checkbox" name="terms" id="terms" required/>
+          <label for="terms">Accept Terms</label>
+        </section>
+        <section>
+          <button type="reset">Clear</button>
+          <button type="submit">Submit</button>
+        </section>
+      </form>
+    </main>
+  </body>
 </html>
