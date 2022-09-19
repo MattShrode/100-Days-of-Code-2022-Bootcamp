@@ -14,75 +14,124 @@
     <title>HTML Forms</title>
   </head>
   <body>
-    <form action="" method="GET">
-      <label for="username">Your Name:</label>
-      <input type="text" name="user-name" id="username" />
-
-      <label for="usermessage">Your Message:</label>
-      <textarea name="user-message" id="usermessage" cols="30" rows="10"></textarea>
-
-      <label for="useremail">Your Email Address:</label>
-      <input type="email" name="user-email" id="useremail" />
-      <label for="userage">Your Age:</label>
-      <input type="number" step="1" name="user-age" id="userage" />
-      <label for="userpassword">Your Password:</label>
-      <input type="password" name="user-password" id="userpassword" />
-      <label for="birthdate">Your Birthday:</label>
-      <input type="date" name="user-birthdate" id="birthdate" />
-      <hr />
-      <label for="favoritecolor">Your Favorite Color:</label>
-      <select name="favorite-color" id="favoritecolor">
-        <option value="red">Red</option>
-        <option value="yellow">Yellow</option>
-        <option value="blue">Blue</option>
-      </select>
-      <h2>Select verification type:</h2>
-      <div class="form-inline-control">
-        <input type="radio" name="verification" id="verify-text" value="text" />
-        <label for="verify-text">Via Text Message (SMS)</label>
-      </div>
-      <div class="form-inline-control">
-        <input
-          type="radio"
-          name="verification"
-          id="verify-phone"
-          value="phone"
-        />
-        <label for="verify-phone">Via Phone Call</label>
-      </div>
-      <div class="form-inline-control">
-        <input
-          type="radio"
-          name="verification"
-          id="verify-email"
-          value="email"
-        />
-        <label for="verify-email">Via Email</label>
-      </div>
-      <div class="form-inline-control">
-        <input type="checkbox" id="agree-terms" name="terms" />
-        <label for="agree-terms">Agree to Terms?</label>
-      </div>
-
-      <div class="form-inline-control">
-        <input
-          type="checkbox"
-          id="contact-email"
-          name="contact"
-          value="email"
-        />
-        <label for="contact-email">Contact me via email</label>
-      </div>
-      <div class="form-inline-control">
-        <input
-          type="checkbox"
-          id="contact-phone"
-          name="contact"
-          value="phone"
-        />
-        <label for="contact-phone">Contact me via phone</label>
-      </div>
-      <button>Submit</button>
-    </form>
+    <header>
+      <h1>Demo Form</h1>
+    </header>
+    <main>
+      <form action="" method="GET">
+        <section>
+          <h2>Your Personal Details</h2>
+          <ul>
+            <li>
+              <label for="username">Your Name:</label>
+              <input type="text" name="user-name" id="username" />
+            </li>
+            <li>
+              <label for="useremail">Your Email Address:</label>
+              <input type="email" name="user-email" id="useremail" />
+            </li>
+            <li>
+              <label for="userpassword">Your Password:</label>
+              <input type="password" name="user-password" id="userpassword" />
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Additional Details</h2>
+          <ul>
+            <li>
+              <label for="userage">Your Age:</label>
+              <input type="number" step="1" name="user-age" id="userage" />
+            </li>
+            <li>
+              <label for="birthdate">Your Birthday:</label>
+              <input type="date" name="user-birthdate" id="birthdate" />
+            </li>
+            <li>
+              <label for="favoritecolor">Your Favorite Color:</label>
+              <select name="favorite-color" id="favoritecolor">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+              </select>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <label for="usermessage">Your Message:</label>
+          <textarea
+            name="user-message"
+            id="usermessage"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </section>
+        <section>
+          <h2>Select verification type:</h2>
+          <ul>
+            <li class="form-inline-control">
+              <input
+                type="radio"
+                name="verification"
+                id="verify-text"
+                value="text"
+              />
+              <label for="verify-text">Via Text Message (SMS)</label>
+            </li>
+            <li class="form-inline-control">
+              <input
+                type="radio"
+                name="verification"
+                id="verify-phone"
+                value="phone"
+              />
+              <label for="verify-phone">Via Phone Call</label>
+            </li>
+            <li class="form-inline-control">
+              <input
+                type="radio"
+                name="verification"
+                id="verify-email"
+                value="email"
+              />
+              <label for="verify-email">Via Email</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>How Should We Contact You?</h2>
+          <ul>
+            <li class="form-inline-control">
+              <input
+                type="checkbox"
+                id="contact-email"
+                name="contact"
+                value="email"
+              />
+              <label for="contact-email">Contact me via email</label>
+            </li>
+            <li class="form-inline-control">
+              <input
+                type="checkbox"
+                id="contact-phone"
+                name="contact"
+                value="phone"
+              />
+              <label for="contact-phone">Contact me via phone</label>
+            </li>
+          </ul>
+        </section>
+        <hr />
+        <section>
+          <div class="form-inline-control">
+            <input type="checkbox" id="agree-terms" name="terms" />
+            <label for="agree-terms">Agree to Terms?</label>
+          </div>
+        </section>
+        <section>
+          <button>Submit</button>
+        </section>
+      </form>
+    </main>
   </body>
 </html>
