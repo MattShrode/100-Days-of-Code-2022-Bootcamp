@@ -14,9 +14,41 @@
     <title>HTML Forms</title>
   </head>
   <body>
-    <form action="" method="POST">
+    <form action="" method="GET">
       <label for="username">Your Name:</label>
       <input type="text" name="user-name" id="username" />
+      <label for="useremail">Your Email Address:</label>
+      <input type="email" name="user-email" id="useremail" />
+      <label for="userage">Your Age:</label>
+      <input type="number" step="1" name="user-age" id="userage" />
+      <label for="userpassword">Your Password:</label>
+      <input type="password" name="user-password" id="userpassword" />
+      <label for="birthdate">Your Birthday:</label>
+      <input type="date" name="user-birthdate" id="birthdate" />
+      <hr />
+      <h2>Select verification type:</h2>
+      <div class="form-inline-control">
+        <input type="radio" name="verification" id="verify-text" value="text" />
+        <label for="verify-text">Via Text Message (SMS)</label>
+      </div>
+      <div class="form-inline-control">
+        <input
+          type="radio"
+          name="verification"
+          id="verify-phone"
+          value="phone"
+        />
+        <label for="verify-phone">Via Phone Call</label>
+      </div>
+      <div class="form-inline-control">
+        <input
+          type="radio"
+          name="verification"
+          id="verify-email"
+          value="email"
+        />
+        <label for="verify-email">Via Email</label>
+      </div>
       <button>Submit</button>
     </form>
   </body>
