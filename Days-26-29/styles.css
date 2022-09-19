@@ -12,11 +12,13 @@ form {
 }
 
 label {
-    margin-bottom: 0.5rem;
-    display: block;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-input {
+input,
+textarea,
+select {
   width: 100%;
   display: block;
   margin-bottom: 1rem;
@@ -27,20 +29,21 @@ input {
   color: rgb(61, 61, 61);
 }
 
-input:focus {
-    background-color: rgb(219, 190, 253);
-    color: rgb(32, 5, 63);
-    border-color: rgb(32, 5, 63);
-    outline: none;
+input:focus,
+textarea:focus {
+  background-color: rgb(219, 190, 253);
+  color: rgb(32, 5, 63);
+  border-color: rgb(32, 5, 63);
+  outline: none;
 }
 
 .form-inline-control {
-    display: flex;
+  display: flex;
 }
 
 .form-inline-control input {
-    width: auto;
-    margin-right: 0.5rem;
+  width: auto;
+  margin-right: 0.5rem;
 }
 
 button {
@@ -54,6 +57,6 @@ button {
 }
 
 button:hover {
-    background-color: rgb(52, 14, 95);
-    border-color: rgb(52, 14, 95);
+  background-color: rgb(52, 14, 95);
+  border-color: rgb(52, 14, 95);
 }
