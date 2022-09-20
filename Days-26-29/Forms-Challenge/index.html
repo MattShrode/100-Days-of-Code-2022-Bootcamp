@@ -36,7 +36,7 @@
             </li>
             <li class="form-inline-control">
               <label for="user-message">Your Message</label>
-              <textarea name="user-message" id="user-message" rows="8"></textarea>
+              <textarea name="user-message" id="user-message" rows="5"></textarea>
             </li>
             <li class="form-inline-control">
               <label for="user-source">How did you find us?</label>
@@ -50,7 +50,7 @@
         </section>
         <section>
           <h2>How should we reply?</h2>
-          <ul>
+          <ul id="reply">
             <li class="form-inline-control">
               <input type="radio" name="reply" id="phone" />
               <label for="">Call me</label>
@@ -65,13 +65,13 @@
             </li>
           </ul>
         </section>
-        <section>
+        <section id="terms">
           <input type="checkbox" name="terms" id="terms" required/>
           <label for="terms">Accept Terms</label>
         </section>
-        <section>
-          <button type="reset">Clear</button>
-          <button type="submit">Submit</button>
+        <section id="button">
+          <button type="reset" id="clear">Clear</button>
+          <button type="submit" id="submit">Submit</button>
         </section>
       </form>
     </main>
