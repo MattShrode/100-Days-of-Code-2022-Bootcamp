@@ -19,3 +19,29 @@
 //      with ANY list of values
 //    - The custom command should provide the accessed value (i.e. the list element)
 // 6) Execute your custom command from (5) and output ("alert") the result
+
+let course = '100 Days of Code Bootcamp';
+let price = 15;
+let goals = ['Learn material', 'Finish course', 'Get a job'];
+
+alert(course);
+alert('$' + price);
+alert(goals);
+
+let yearlyGoal = {
+    course: '100 Days of Code Bootcamp',
+    price: 15,
+    goals: ['Learn material', 'Finish course', 'Get a job']
+};
+
+alert(yearlyGoal.course);
+alert('$' + yearlyGoal.price);
+alert(goals);
+
+alert(yearlyGoal.goals[1]);
+
+function printGoal(userGoal, targetGoal) {
+    return userGoal[targetGoal];
+}
+
+alert(printGoal(yearlyGoal.goals, 0));
