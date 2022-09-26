@@ -21,8 +21,17 @@ let job = {
 let adultYears;
 
 function calculateAdultYears(userAge) {
-    return userAge - 18;
+  return userAge - 18;
 }
 
 adultYears = calculateAdultYears(age);
-alert(adultYears);
+console.log(adultYears);
+
+let person = {
+  name: 'Matt', //Property
+  greet() { //Method
+    console.log("Hello!");
+  },
+};
+
+person.greet();
