@@ -2,15 +2,41 @@
 
 // 1) Select the two <button> elements and store them in two different variables.
 //    - Select the first button without adding or using any "id"
+
+const firstButton = document.querySelector('button');
+
 //    - Select the second button by using an "id"
+
+const secondButton = document.getElementById('second-button')
+
 // 2) Add "click" event listener to both buttons (with two different functions).
+
+firstButton.addEventListener('click', removeParagraph);
+secondButton.addEventListener('click', addBackgroundColor)
+
 //    The functions should "console.dir()" the clicked buttons.
 //    - Output the first button by using the variable in which it's stored
+
+function removeParagraph() {
+    console.log(firstButton);
+    thirdParagraph.style.display = 'none';
+    thirdParagraph.classList.add('hidden');
+}
 //    - Output the second button WITHOUT using the variable in which it's stored
+
+function addBackgroundColor(event) {
+    console.log(event.target);
+    firstParagraph.style.backgroundColor = 'blue';
+    firstParagraph.classList.add('blue-background');
+}
 // 3) Now select and store the paragraphs mentioned in the text you see on the page
 //    (first and third paragraph)
 //    - Select BOTH paragraphs by drilling into the document and "navigating" to the
 //      mentioned elements
+
+const firstParagraph = document.body.children[2].children[1];
+const  thirdParagraph = document.body.children[2].children[3];
+
 //    - If you struggle with DOM drilling, use "ids" instead but watch the solution!
 // 4) Change the functions from (2) such that:
 //    - The first button removes the third paragraph (i.e. the <p> prior to it)

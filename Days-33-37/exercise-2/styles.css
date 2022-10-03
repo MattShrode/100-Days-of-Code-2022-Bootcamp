@@ -29,3 +29,11 @@ button:hover {
   background-color: rgb(221, 199, 5);
   border-color: rgb(221, 199, 5);
 }
+
+.hidden {
+  display: none;
+}
+
+.blue-background {
+  background-color: blue;
+}
