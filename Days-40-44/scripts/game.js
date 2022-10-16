@@ -42,6 +42,7 @@ function selectGameField(event) {
   if (gameIsOver) {
     return;
   }
+  
   const selectedField = event.target;
   const selectedColumn = selectedField.dataset.col - 1;
   const selectedRow = selectedField.dataset.row - 1;
