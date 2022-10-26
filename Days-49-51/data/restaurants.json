@@ -1,1 +1,1 @@
-[{"name":"Test Name","address":"Test Street, Test City","cuisine":"Italian","website":"https://www.google.com","description":"Test Answer"},{"name":"Blah","address":"Blah","cuisine":"Blah","website":"https://www.google.com","description":"Blah"},{"name":"Blah","address":"Blah","cuisine":"Blah","website":"https://www.google.com","description":"BlahBlah"}]
+[{"name":"Test Name","address":"Test Address","cuisine":"Test Cuisine","website":"https://www.google.com","description":"Because it's a test!"}]
