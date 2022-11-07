@@ -21,3 +21,22 @@ console.log(cook);
 
 developer.describe();
 cook.describe();
+
+//Array Destructuring
+
+const input = ['Matt', 'Shrode'];
+
+const [first, last] = input;
+
+console.log(first);
+console.log(last);
+
+//Object Destructuring
+
+const {title, location, salary} = job; //Must refer to the object properties
+
+console.log(title);
+
+const {title: jTitle} = job; //Looks in the object for the title property, and creates the variable with the name jTitle.
+
+console.log(jTitle);
