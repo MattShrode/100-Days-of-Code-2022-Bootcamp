@@ -7,7 +7,10 @@ class Job { //Class is a blueprint for an object
         this.title = jobTitle;
         this.location = place;
         this.salary = salary;
-    } 
+    }
+    describe() { //Create a custom method for the class.
+        console.log(`I'm a ${this.title}, I work in ${this.location}, and I earn ${this.salary}.`)
+    }
 } 
 
 const developer = new Job('Developer', 'Houston', 50000);
@@ -15,3 +18,6 @@ const cook = new Job('Cook', 'Dallas', 40000);
 
 console.log(developer);
 console.log(cook);
+
+developer.describe();
+cook.describe();
