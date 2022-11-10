@@ -1,0 +1,2 @@
+These days were spent practicing in a SQL database using 
+mySQL and mySQL workbench.
