@@ -1,0 +1,1 @@
+These days were spent practicing in MongoDB using the Mongo Shell.
