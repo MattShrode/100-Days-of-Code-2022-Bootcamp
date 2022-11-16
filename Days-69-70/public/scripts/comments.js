@@ -1,8 +1,8 @@
 const loadCommentsBtnElement = document.getElementById("load-comments-btn");
 const commentsSectionElement = document.getElementById("comments");
-const commentsFormEement = document.querySelector('#comments-form form');
-const commentTitleElement = document.getElementById('title');
-const commentTextElement = document.getElementById('text');
+const commentsFormEement = document.querySelector("#comments-form form");
+const commentTitleElement = document.getElementById("title");
+const commentTextElement = document.getElementById("text");
 
 function createCommentsList(comments) {
   const commentListElement = document.createElement("ol");
@@ -26,28 +26,34 @@ async function fetchCommentsForPost(event) {
   const response = await fetch(`/posts/${postId}/comments`);
   const responseData = await response.json();
 
-  const commentsListElement = createCommentsList(responseData);
-
-  commentsSectionElement.innerHTML = '';
-  commentsSectionElement.appendChild(commentsListElement);
+  if (responseData && responseData.length > 0) {
+    const commentsListElement = createCommentsList(responseData);
+    commentsSectionElement.innerHTML = "";
+    commentsSectionElement.appendChild(commentsListElement);
+  } else {
+    commentsSectionElement.firstElementChild.textContent =
+      "We could not find any comments.";
+  }
 }
 
-function saveComment(event) {
-    event.preventDefault();
-    const postId = commentsFormEement.dataset.postid;
-    const enteredTitle = commentTitleElement.value;
-    const enteredText = commentTextElement.value;
+async function saveComment(event) {
+  event.preventDefault();
+  const postId = commentsFormEement.dataset.postid;
+  const enteredTitle = commentTitleElement.value;
+  const enteredText = commentTextElement.value;
 
-    const comment = {title: enteredTitle, text: enteredText};
+  const comment = { title: enteredTitle, text: enteredText };
 
-    fetch(`/posts/${postId}/comments`, {
-        method: 'POST',
-        body: JSON.stringify(comment),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+  const response = await fetch(`/posts/${postId}/comments`, {
+    method: "POST",
+    body: JSON.stringify(comment),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  fetchCommentsForPost();
 }
 
 loadCommentsBtnElement.addEventListener("click", fetchCommentsForPost);
-commentsFormEement.addEventListener('submit', saveComment);
+commentsFormEement.addEventListener("submit", saveComment);
