@@ -23,6 +23,30 @@ router.post("/signup", async function (req, res) {
   const enteredConfirmEmail = userData["confirm-email"];
   const enteredPassword = userData.password;
 
+  const trimmedPassword = enteredPassword.trim();
+
+  if (
+    !enteredEmail ||
+    !enteredConfirmEmail ||
+    !enteredPassword ||
+    trimmedPassword.length < 6 ||
+    enteredEmail != enteredConfirmEmail ||
+    !enteredEmail.includes("@")
+  ) {
+    console.log("Incorrect data");
+    return res.redirect("/signup");
+  }
+
+  const existingUser = await db
+    .getDb()
+    .collection("users")
+    .findOne({ email: enteredEmail });
+
+  if (existingUser) {
+    console.log('User already exists.')
+    return res.redirect('/signup');
+  }
+
   const hashedPassword = await bcrypt.hash(enteredPassword, 12);
 
   const user = {
@@ -60,8 +84,8 @@ router.post("/login", async function (req, res) {
     return res.redirect("/login");
   }
 
-  console.log('User is authenticated.')
-  res.redirect('/admin');
+  console.log("User is authenticated.");
+  res.redirect("/admin");
 });
 
 router.get("/admin", function (req, res) {
