@@ -12,7 +12,7 @@ const MongoDBStore = mondgodbStore(session);
 const app = express();
 
 const sessionStore = new MongoDBStore({
-  uri: 'mongodb://localhost:21017',
+  uri: 'mongodb://localhost:27017',
   databaseName: 'auth-demo',
   collection: 'sessions'
 });
@@ -27,7 +27,7 @@ app.use(session({
   secret: 'super-secret',
   resave: false,
   saveUninitialized: false,
-  store: sessionStore
+  store: sessionStore,
 }));
 
 app.use(demoRoutes);
