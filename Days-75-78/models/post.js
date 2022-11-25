@@ -1,20 +1,49 @@
-const db = require('../data/database');
+const mongodb = require("mongodb");
+const db = require("../data/database");
+
+const ObjectId = mongodb.ObjectId;
 
 class Post {
-    constructor(title, content, id) {
-        this.title = title;
-        this.content = content;
-        this.id = id; //may be undefined
-    }
-    
-    async save() {      
-          const result = await db.getDb().collection('posts').insertOne({
-            title: this.title,
-            content: this.content,
-          });
+  constructor(title, content, id) {
+    this.title = title;
+    this.content = content;
 
-          return result;
+    if (id) {
+      this.id = new ObjectId(id);
     }
+  }
+
+  async save() {
+    let result;
+    if (this.id) {
+      result = await db
+        .getDb()
+        .collection("posts")
+        .updateOne(
+          { _id: this.id },
+          { $set: { title: this.title, content: this.content } }
+        );
+    } else {
+      result = await db.getDb().collection("posts").insertOne({
+        title: this.title,
+        content: this.content,
+      });
+    }
+
+    return result;
+  }
+
+  async delete() {
+    if (!this.id) {
+      return;
+    } else {
+      const result = await db
+        .getDb()
+        .collection("posts")
+        .deleteOne({ _id: this.id });
+      return result;
+    }
+  }
 }
 
 module.exports = Post;
