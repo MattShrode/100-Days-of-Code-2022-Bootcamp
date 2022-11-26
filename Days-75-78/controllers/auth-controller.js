@@ -1,13 +1,15 @@
 const bcrypt = require("bcryptjs");
 
 const db = require("../data/database");
+const User = require("../models/user");
 const validation = require("../util/validation");
 const validationSession = require("../util/validation-session");
 
 function getSignup(req, res) {
   const sessionErrorData = validationSession.getSessionErrorData(req, {
-    title: "",
-    content: "",
+    email: "",
+    confirmEmail: "",
+    password: "",
   });
 
   res.render("signup", {
@@ -17,8 +19,8 @@ function getSignup(req, res) {
 
 function getLogin(req, res) {
   const sessionErrorData = validationSession.getSessionErrorData(req, {
-    title: "",
-    content: "",
+    email: "",
+    password: "",
   });
 
   res.render("login", {
@@ -50,12 +52,10 @@ async function createUser(req, res) {
     return;
   }
 
-  const existingUser = await db
-    .getDb()
-    .collection("users")
-    .findOne({ email: enteredEmail });
+  const newUser = new User(enteredEmail, enteredPassword);
+  const userExistsAlready = await newUser.existsAlready();
 
-  if (existingUser) {
+  if (userExistsAlready) {
     validationSession.flashErrorsToSession(
       req,
       {
@@ -71,14 +71,7 @@ async function createUser(req, res) {
     return;
   }
 
-  const hashedPassword = await bcrypt.hash(enteredPassword, 12);
-
-  const user = {
-    email: enteredEmail,
-    password: hashedPassword,
-  };
-
-  await db.getDb().collection("users").insertOne(user);
+  await newUser.signup();
 
   res.redirect("/login");
 }
@@ -88,10 +81,8 @@ async function loginUser(req, res) {
   const enteredEmail = userData.email;
   const enteredPassword = userData.password;
 
-  const existingUser = await db
-    .getDb()
-    .collection("users")
-    .findOne({ email: enteredEmail });
+  const newUser = new User(enteredEmail, enteredPassword);
+  const existingUser = await newUser.getUserWithSameEmail();
 
   if (!existingUser) {
     validationSession.flashErrorsToSession(
@@ -108,12 +99,9 @@ async function loginUser(req, res) {
     return;
   }
 
-  const passwordsAreEqual = await bcrypt.compare(
-    enteredPassword,
-    existingUser.password
-  );
+  const success = await newUser.login(existingUser.password);
 
-  if (!passwordsAreEqual) {
+  if (!success) {
     validationSession.flashErrorsToSession(
       req,
       {
