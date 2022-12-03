@@ -1,65 +1,88 @@
 const User = require("../models/user.model");
-const authUtil = require('../util/authentication');
+const authUtil = require("../util/authentication");
+const validation = require("../util/validation");
 
 function getSignup(req, res) {
   res.render("customer/auth/signup");
 }
 
 async function signup(req, res, next) {
+  if (
+    !validation.userDetailsAreValid(
+      req.body.email,
+      req.body.password,
+      req.body["full-name"],
+      req.body.street,
+      req.body.city,
+      req.body.state,
+      req.body.postal
+    ) ||
+    !validation.emailIsConfirmed(req.body.email, req.body["confirm-email"])
+  ) {
+    res.redirect("/signup");
+    return;
+  }
+
   const user = new User(
     req.body.email,
     req.body.password,
-    req.body['full-name'],
+    req.body["full-name"],
     req.body.street,
     req.body.city,
     req.body.state,
-    req.body.postal,
+    req.body.postal
   );
-    try {
-      await user.signup();
-    } catch (error) {
-      return next(error);
-    }
-  
 
-  res.redirect('/login');
+  try {
+    const existsAlready = await user.existsAlready();
+
+    if (existsAlready) {
+      res.redirect("/signup");
+      return;
+    }
+
+    await user.signup();
+  } catch (error) {
+    return next(error);
+  }
+
+  res.redirect("/login");
 }
 
 function getLogin(req, res) {
-  res.render('customer/auth/login');
+  res.render("customer/auth/login");
 }
 
 async function login(req, res, next) {
   const user = new User(req.body.email, req.body.password);
   let existingUser;
-  
+
   try {
     existingUser = await user.getUserWithSameEmail();
   } catch (error) {
     return next(error);
   }
-  
 
-  if(!existingUser) {
-    res.redirect('/login');
+  if (!existingUser) {
+    res.redirect("/login");
     return;
   }
 
   const passwordisCorrect = await user.comparePassword(existingUser.password);
 
-  if(!passwordisCorrect) {
-    res.redirect('/login');
+  if (!passwordisCorrect) {
+    res.redirect("/login");
     return;
   }
 
-  authUtil.createUserSession(req, existingUser, function() {
-    res.redirect('/');
+  authUtil.createUserSession(req, existingUser, function () {
+    res.redirect("/");
   });
 }
 
 function logout(req, res) {
   authUtil.destroyUserAuthSession(req);
-  res.redirect('/login');
+  res.redirect("/login");
 }
 
 module.exports = {
