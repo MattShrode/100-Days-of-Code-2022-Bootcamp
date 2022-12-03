@@ -4,12 +4,28 @@ const validation = require("../util/validation");
 const sessionFlash = require("../util/session-flash");
 
 function getSignup(req, res) {
-  res.render("customer/auth/signup");
+  let sessionData = sessionFlash.getSessionData(req);
+
+  if(!sessionData) {
+    sessionData = {
+      email: '',
+      confirmEmail: '',
+      password: '',
+      name: '',
+      street: '',
+      city: '',
+      state: '',
+      postal: '',
+    }
+  }
+
+  res.render("customer/auth/signup", {inputData: sessionData});
 }
 
 async function signup(req, res, next) {
   const enteredData = {
     email: req.body.email,
+    confirmEmail: req.body['confirm-email'],
     password: req.body.password,
     name: req.body["full-name"],
     street: req.body.street,
@@ -79,7 +95,16 @@ async function signup(req, res, next) {
 }
 
 function getLogin(req, res) {
-  res.render("customer/auth/login");
+  let sessionData = sessionFlash.getSessionData(req);
+
+  if(!sessionData) {
+    sessionData = {
+      email: '',
+      password: '',
+    }
+  }
+
+  res.render("customer/auth/login", {inputData: sessionData});
 }
 
 async function login(req, res, next) {
@@ -94,7 +119,7 @@ async function login(req, res, next) {
 
   const sessionErrorData = {
     errorMessage:
-      "Invalid credentials. Please double check you email and password.",
+      "Please double check you email and password.",
     email: user.email,
     password: user.password,
   };
