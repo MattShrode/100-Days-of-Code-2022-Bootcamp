@@ -3,17 +3,17 @@
     <h2><%=item.product.title%></h2>
     <p>
       $<%=item.totalPrice.toFixed(2)%>
-      <span class="cart-product-price">($<%=item.product.price.toFixed(2)%>)</span>
+      <span class="cart-product-price"
+        >($<%=item.product.price.toFixed(2)%>)</span
+      >
     </p>
   </div>
-  <div class="cart-item-management">
-    <input
-      type="number"
-      value="<%=item.quantity%>"
-      name=""
-      id=""
-      required
-    />
+  <form
+    class="cart-item-management"
+    data-productid="<%=item.product.id%>"
+    data-csrf="<%=locals.csrfToken%>"
+  >
+    <input type="number" value="<%=item.quantity%>" name="" id="" required />
     <button class="btn btn-alt">Update</button>
-  </div>
+  </form>
 </article>
