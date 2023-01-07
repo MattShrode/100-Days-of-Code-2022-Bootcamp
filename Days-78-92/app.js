@@ -36,7 +36,7 @@ app.use(expressSession(sessionConfig));
 app.use(csrf());
 
 app.use(cartMiddleware);
-//app.use(updateCartPricesMiddleware);
+app.use(updateCartPricesMiddleware);
 
 app.use(addCSRFTokenMiddleware);
 app.use(checkAuthStatusMiddleware);

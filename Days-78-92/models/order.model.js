@@ -26,7 +26,7 @@ class Order {
       return db
         .getDb()
         .collection("orders")
-        .updateOne({ _id: orderId }, { set: { status: this.status } });
+        .updateOne({ _id: orderId }, { $set: { status: this.status } });
     } else {
       //new order
       const orderDocument = {
@@ -83,7 +83,7 @@ class Order {
       .collection("orders")
       .findOne({ _id: new mongodb.ObjectId(orderId) });
 
-    return this.transformOrderDocuments(order);
+    return this.transformOrderDocument(order);
   }
 }
 
