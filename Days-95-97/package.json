@@ -1,0 +1,17 @@
+{
+  "name": "days-95-97",
+  "version": "1.0.0",
+  "description": "REST APIs Practice",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Matt Shrode",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
