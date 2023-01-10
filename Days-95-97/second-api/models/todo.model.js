@@ -17,7 +17,7 @@ class Todo {
   save() {
     if (this.id) {
       const todoId = new mongodb.ObjectId(this.id);
-      return db.getDb
+      return db.getDb()
         .collection("todos")
         .updateOne({ _id: todoId }, { $set: { text: this.text } });
     } else {
