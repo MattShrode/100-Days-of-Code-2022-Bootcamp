@@ -15,16 +15,22 @@
       <p>Manage your (daily) todos with ease!</p>
     </header>
     <main id="todos-app">
-      <h2>{{newTodo}}</h2>
       <section id="todo-management">
         <form @submit="saveTodo">
-          <label for="text">Todo text</label>
+          <label for="text">Todo Text</label>
           <input type="text" id="text" name="text" v-model="enteredTodoText" required />
           <button>Save</button>
         </form>
       </section>
       <section id="todos">
         <ul id="todos-list">
+          <li v-for="todo in todos"> <!--todos is the array name in app.js-->
+            <p>{{todo.text}}</p>
+            <div>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          </li>
         </ul>
       </section>
     </main>
