@@ -28,7 +28,7 @@
           <li v-for="todo in todos"> <!--todos is the array name in app.js-->
             <p>{{todo.text}}</p>
             <div>
-              <button>Edit</button>
+              <button @click="startEditTodo(todo.id)">Edit</button>
               <button>Delete</button>
             </div>
           </li>
